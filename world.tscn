@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ceopmga6npl6y"]
+
+[node name="World" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 8)
+scale = Vector2(0.704697, 0.798583)
+polygon = PackedVector2Array(0, 0, 24, 0, 24, 112, 72, 112, 104, 152, 144, 120, 168, 80, 192, 80, 192, 144, 216, 144, 216, 80, 264, 80, 264, 120, 320, 120, 360, 120, 360, 96, 392, 96, 392, 120, 432, 120, 432, 32, 456, 32, 456, 120, 456, 224, 0, 224)
