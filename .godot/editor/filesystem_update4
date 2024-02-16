@@ -1,7 +1,5 @@
 res://world.tscn
-res://player.tscn
-<<<<<<< HEAD
-res://SlowMovementData.tres
-=======
 res://player.gd
->>>>>>> 9245575d82d85b6ba77a90a363583068bac094e2
+res://player.tscn
+res://spikes.tscn
+res://hazard_area.tscn
