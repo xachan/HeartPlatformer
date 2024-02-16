@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceopmga6npl6y"]
+[gd_scene load_steps=5 format=3 uid="uid://ceopmga6npl6y"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_5qbu1"]
 [ext_resource type="PackedScene" uid="uid://dehhmy88k0cmp" path="res://player.tscn" id="2_o30u7"]
+[ext_resource type="PackedScene" uid="uid://cnfdkc5h52yos" path="res://spikes.tscn" id="3_l6hk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4o33"]
 size = Vector2(24, 72)
@@ -12,9 +13,9 @@ script = ExtResource("1_5qbu1")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(0, 8)
+position = Vector2(1, 8)
 scale = Vector2(0.704697, 0.798583)
-polygon = PackedVector2Array(0, -30.0532, 22.7048, -30.0532, 22.7048, 110.195, 45.4096, 110.195, 56.762, 120.213, 79.4668, 110.195, 147.581, 110.195, 181.638, 110.195, 181.638, 140.248, 227.048, 140.248, 227.048, 50.0887, 238.4, 50.0887, 272.458, 100.177, 363.277, 100.177, 385.981, 100.177, 397.334, 120.213, 432, 120, 431.391, -30.0532, 454.096, -30.0532, 456, 120, 456, 224, 0, 224)
+polygon = PackedVector2Array(0, -30.0532, 22.7048, -30.0532, 22.7048, 110.195, 46.8286, 110.195, 46.8286, 135.24, 87.9811, 135.24, 87.9811, 110.195, 183.057, 110.195, 183.057, 140.248, 227.048, 140.248, 227.048, 63.8631, 246.915, 63.8631, 272.458, 100.177, 363.277, 100.177, 387.401, 100.177, 387.401, 128.978, 429.972, 128.978, 431.391, -30.0532, 454.096, -30.0532, 456, 120, 456, 224, 0, 224)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
@@ -33,3 +34,12 @@ offset_top = -16.0
 offset_right = 264.0
 offset_bottom = 54.0
 scale = Vector2(0.98058, 1.02306)
+
+[node name="spikes" parent="." instance=ExtResource("3_l6hk3")]
+position = Vector2(128, 121)
+
+[node name="spikes2" parent="." instance=ExtResource("3_l6hk3")]
+position = Vector2(32, 117)
+
+[node name="spikes3" parent="." instance=ExtResource("3_l6hk3")]
+position = Vector2(271, 112)
