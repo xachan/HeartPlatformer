@@ -1,11 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dehhmy88k0cmp"]
+[gd_scene load_steps=15 format=3 uid="uid://dehhmy88k0cmp"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_fsgtj"]
 [ext_resource type="Texture2D" uid="uid://b4uphhkqftp1f" path="res://player.png" id="1_jx764"]
 [ext_resource type="Resource" uid="uid://b7i1882rvevs0" path="res://FasterMovementData.tres" id="2_21p4d"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcgtb"]
-size = Vector2(8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7jhq"]
 atlas = ExtResource("1_jx764")
@@ -81,6 +78,12 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hph"]
+size = Vector2(6, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcgtb"]
+size = Vector2(9.25, 13.5)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 floor_constant_speed = true
@@ -88,12 +91,8 @@ floor_snap_length = 3.0
 script = ExtResource("1_fsgtj")
 movement_data = ExtResource("2_21p4d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_tcgtb")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.08165e-12, -10)
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_3qelg")
 animation = &"run"
 
@@ -103,3 +102,19 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2.08165e-12, -32)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="HazardDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_b4hph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_tcgtb")
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
