@@ -10,5 +10,3 @@ func _on_body_entered(body):
 
 func show_level_completed():
 	pass
-		
-	

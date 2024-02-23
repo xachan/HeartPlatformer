@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bod4x53dnaq3r"]
+[gd_scene format=3 uid="uid://efs1co1g8134"]
 
 [node name="HazardArea" type="Area2D"]
 collision_layer = 4

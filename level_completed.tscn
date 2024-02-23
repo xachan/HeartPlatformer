@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bsfseolm6vcy3"]
+[gd_scene format=3 uid="uid://cwp3gba8d24fh"]
 
 [node name="LevelCompleted" type="ColorRect"]
 anchors_preset = 15
