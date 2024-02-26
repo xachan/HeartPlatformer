@@ -7,3 +7,8 @@ res://tile_map.tscn
 res://world_copy.tscn
 res://levelone.tscn
 res://world.gd
+res://AnimationPlayer.gd
+res://events.gd
+res://level_transition.gd
+res://level_transition.tscn
+res://leveltwo.tscn

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1hx8jcbjlr43"]
+
+[ext_resource type="Script" path="res://level_transition.gd" id="1_bxi7k"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="2_ettdt"]
+
+[sub_resource type="Animation" id="Animation_6diqj"]
+resource_name = "fade_from_black"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_py433"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y88ir"]
+_data = {
+"RESET": SubResource("Animation_py433"),
+"fade_from_black": SubResource("Animation_6diqj")
+}
+
+[node name="LevelTransition" type="Node"]
+process_mode = 3
+script = ExtResource("1_bxi7k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_y88ir")
+}
+script = ExtResource("2_ettdt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 321.0
+offset_bottom = 185.0
+color = Color(0, 0, 0, 1)
