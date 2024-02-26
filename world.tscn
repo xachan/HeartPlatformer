@@ -1,65 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceopmga6npl6y"]
+[gd_scene load_steps=5 format=3 uid="uid://ceopmga6npl6y"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_5qbu1"]
 [ext_resource type="PackedScene" uid="uid://dehhmy88k0cmp" path="res://player.tscn" id="2_o30u7"]
-[ext_resource type="PackedScene" uid="uid://beimpfobyxb2" path="res://spikes.tscn" id="3_l6hk3"]
-[ext_resource type="PackedScene" path="res://heart.tscn" id="4_36lj2"]
 [ext_resource type="PackedScene" uid="uid://cwp3gba8d24fh" path="res://level_completed.tscn" id="5_sgyc0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4o33"]
-size = Vector2(24, 72)
+[ext_resource type="PackedScene" uid="uid://b15hwbefhtxqk" path="res://tile_map.tscn" id="6_etn1n"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_5qbu1")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(1, 8)
-scale = Vector2(0.704697, 0.798583)
-polygon = PackedVector2Array(0, -30.0532, 22.7048, -30.0532, 22.7048, 110.195, 46.8286, 110.195, 46.8286, 135.24, 87.9811, 135.24, 87.9811, 110.195, 183.057, 110.195, 183.057, 140.248, 227.048, 140.248, 227.048, 63.8631, 246.915, 63.8631, 272.458, 100.177, 363.277, 100.177, 387.401, 100.177, 387.401, 128.978, 429.972, 128.978, 431.391, -30.0532, 454.096, -30.0532, 456, 120, 456, 224, 0, 224)
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-
 [node name="Player" parent="." instance=ExtResource("2_o30u7")]
-position = Vector2(24, 96)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(252, 20)
-shape = SubResource("RectangleShape2D_i4o33")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 240.0
-offset_top = -16.0
-offset_right = 264.0
-offset_bottom = 54.0
-scale = Vector2(0.98058, 1.02306)
-
-[node name="spikes" parent="." instance=ExtResource("3_l6hk3")]
-position = Vector2(128, 121)
-
-[node name="spikes2" parent="." instance=ExtResource("3_l6hk3")]
-position = Vector2(32, 117)
-
-[node name="spikes3" parent="." instance=ExtResource("3_l6hk3")]
-position = Vector2(271, 112)
-
-[node name="Heart2" parent="." instance=ExtResource("4_36lj2")]
-position = Vector2(168, 53)
-
-[node name="Heart" parent="." instance=ExtResource("4_36lj2")]
-position = Vector2(271, 43)
-
-[node name="Heart3" parent="." instance=ExtResource("4_36lj2")]
-position = Vector2(313, -23)
-
-[node name="Heart4" parent="." instance=ExtResource("4_36lj2")]
-position = Vector2(298, 4)
+position = Vector2(3, -3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_sgyc0")]
 visible = false
 rotation = 0.00749372
+
+[node name="TileMap" parent="." instance=ExtResource("6_etn1n")]
+position = Vector2(3, -3)

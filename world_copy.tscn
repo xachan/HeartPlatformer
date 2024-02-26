@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcnmxec036s6r"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_58k85"]
+[ext_resource type="PackedScene" uid="uid://dehhmy88k0cmp" path="res://player.tscn" id="2_jx31v"]
+[ext_resource type="PackedScene" uid="uid://beimpfobyxb2" path="res://spikes.tscn" id="3_ute65"]
+[ext_resource type="PackedScene" uid="uid://ct514djbia50d" path="res://heart.tscn" id="4_mg7ay"]
+[ext_resource type="PackedScene" uid="uid://cwp3gba8d24fh" path="res://level_completed.tscn" id="5_8r2ic"]
+[ext_resource type="PackedScene" uid="uid://b15hwbefhtxqk" path="res://tile_map.tscn" id="6_uur61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4o33"]
+size = Vector2(15, 72)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_58k85")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1, 8)
+scale = Vector2(0.704697, 0.798583)
+polygon = PackedVector2Array(0, -30.0532, 22.7048, -30.0532, 22.7048, 110.195, 43.9905, 111.447, 42.5715, 136.492, 87.9811, 135.24, 87.9811, 110.195, 180.219, 110.195, 178.8, 131.483, 227.048, 132.735, 228.467, 71.3764, 248.334, 71.3764, 248.334, 90.1597, 363.277, 91.4119, 384.562, 90.1597, 384.562, 128.978, 429.972, 128.978, 431.391, -30.0532, 454.096, -30.0532, 452.677, 120.213, 456, 224, 0, 224)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_jx31v")]
+position = Vector2(24, 96)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(264, 20)
+shape = SubResource("RectangleShape2D_i4o33")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = 257.0
+offset_top = -16.0
+offset_right = 272.0
+offset_bottom = 61.0
+scale = Vector2(0.98058, 1.02306)
+
+[node name="spikes" parent="." instance=ExtResource("3_ute65")]
+position = Vector2(129, 115)
+
+[node name="spikes2" parent="." instance=ExtResource("3_ute65")]
+position = Vector2(32, 115)
+
+[node name="spikes3" parent="." instance=ExtResource("3_ute65")]
+position = Vector2(271, 112)
+
+[node name="Heart2" parent="." instance=ExtResource("4_mg7ay")]
+position = Vector2(168, 53)
+
+[node name="Heart" parent="." instance=ExtResource("4_mg7ay")]
+position = Vector2(278, 45)
+
+[node name="Heart3" parent="." instance=ExtResource("4_mg7ay")]
+position = Vector2(313, -23)
+
+[node name="Heart4" parent="." instance=ExtResource("4_mg7ay")]
+position = Vector2(298, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_8r2ic")]
+visible = false
+rotation = 0.00749372
+
+[node name="TileMap" parent="." instance=ExtResource("6_uur61")]
+position = Vector2(1, 0)
+layer_0/tile_data = PackedInt32Array(-65536, 196608, 0, 0, 196608, 1, 65536, 196608, 1, 131072, 196608, 1, 196608, 196608, 1, 262144, 196608, 1, 327680, 196608, 1, 393216, 262144, 2, 458752, 0, 1, 524288, 0, 1, 393220, 0, 0, 458756, 393216, 2, 458755, 65536, 0, 524291, 65536, 1, 524290, 65536, 1, 458754, 65536, 0, 458753, 327680, 2, 393217, 131072, 0, 524289, 65536, 1, 589825, 65536, 1, 589824, 0, 1, 655360, 0, 1, 720896, 0, 2, 720897, 65536, 2, 720898, 131072, 2, 720899, 0, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 720907, 65536, 2, 720908, 65536, 2, 720909, 65536, 2, 720910, 65536, 2, 720911, 65536, 2, 720912, 65536, 2, 720913, 65536, 2, 720914, 65536, 2, 720915, 131072, 2, 655379, 131072, 1, 589843, 131072, 1, 589842, 65536, 1, 589841, 65536, 1, 655377, 65536, 1, 655378, 65536, 1, 655376, 65536, 1, 655375, 65536, 1, 655374, 65536, 1, 655373, 65536, 1, 655372, 65536, 1, 655371, 65536, 1, 589834, 65536, 1, 589833, 327680, 1, 589832, 65536, 1, 589831, 65536, 1, 589830, 65536, 1, 589829, 65536, 1, 589828, 65536, 1, 589827, 65536, 1, 524294, 65536, 1, 458758, 65536, 1, 458757, 65536, 1, 393221, 65536, 0, 393222, 65536, 0, 393223, 131072, 0, 458759, 327680, 2, 524295, 65536, 1, 524293, 65536, 1, 524292, 65536, 1, 589826, 65536, 1, 655362, 327680, 1, 655361, 65536, 1, 655363, 65536, 1, 655369, 65536, 1, 655368, 65536, 1, 655370, 65536, 1, 655367, 65536, 1, 655366, 65536, 1, 655365, 65536, 1, 655364, 65536, 1, -65517, 196608, 0, 19, 196608, 1, 65555, 196608, 1, 131091, 196608, 1, 196627, 196608, 1, 262163, 196608, 1, 327699, 196608, 1, 393235, 196608, 1, 458771, 458752, 2, 524307, 131072, 1, 524306, 65536, 1, 458770, 655360, 2, 458769, 65536, 0, 458768, 327680, 2, 393232, 131072, 1, 327696, 131072, 0, 327695, 65536, 0, 327694, 65536, 0, 327693, 65536, 0, 327692, 65536, 0, 327691, 65536, 0, 327690, 262144, 2, 262154, 196608, 0, 524296, 65536, 1, 524297, 65536, 1, 524298, 65536, 1, 524299, 65536, 1, 458763, 65536, 1, 393227, 65536, 1, 393226, 0, 1, 458762, 393216, 2, 458761, 65536, 0, 458760, 65536, 0, 393228, 65536, 1, 393229, 65536, 1, 393230, 65536, 1, 393231, 65536, 1, 458767, 65536, 1, 458766, 65536, 1, 458765, 65536, 1, 458764, 65536, 1, 524300, 65536, 1, 524301, 65536, 1, 524302, 65536, 1, 524303, 65536, 1, 524304, 65536, 1, 589840, 65536, 1, 524305, 65536, 1, 589839, 65536, 1, 589838, 65536, 1, 589837, 65536, 1, 589836, 65536, 1, 589835, 65536, 1, -65520, 196608, 0, 16, 196608, 1, 65552, 196608, 1, 131088, 196608, 1, 196624, 196608, 2)
+layer_1/tile_data = PackedInt32Array(262155, 131073, 0, 262156, 196609, 0)

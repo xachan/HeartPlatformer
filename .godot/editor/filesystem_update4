@@ -2,7 +2,8 @@ res://world.tscn
 res://player.tscn
 res://spikes.tscn
 res://hazard_area.tscn
-res://world.gd
-res://PlayerMovementData.gd
 res://level_completed.tscn
-res://heart.gd
+res://tile_map.tscn
+res://world_copy.tscn
+res://levelone.tscn
+res://world.gd
